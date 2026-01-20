@@ -8,9 +8,13 @@ using Microsoft.Extensions.Logging;
 
 namespace backend_teste.Controllers
 {
-    [Route("[controller]")]
+    [ApiController]
+    [Route("contato")]
     public class contactController : Controller
+
     {
+
+        
 
     }
 }
