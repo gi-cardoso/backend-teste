@@ -1,3 +1,6 @@
+using backend_teste.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,6 +8,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
+
+builder.Services.AddDbContext<BancoContext>(options => 
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("MysqlDatabase"),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("MysqlDatabase"))
+    )
+);
 
 var app = builder.Build();
 
