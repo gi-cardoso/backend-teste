@@ -9,5 +9,7 @@ namespace backend_teste.Repository
     public interface IContactRepository
     {
         ContactModel Adicionar(ContactModel contact);
+
+        List<ContactModel> Listar();
     }
 }

@@ -21,5 +21,10 @@ namespace backend_teste.Repository
             _context.SaveChanges();
             return contact;
         }
+
+        public List<ContactModel> Listar()
+        {
+            return _context.Contatos.ToList();
+        }
     }
 }

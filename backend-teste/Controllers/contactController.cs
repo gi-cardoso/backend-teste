@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Numerics;
 using System.Threading.Tasks;
 using backend_teste.Models;
 using backend_teste.Repository;
@@ -32,6 +33,22 @@ namespace backend_teste.Controllers
             catch (Exception erro)
             {
                 return BadRequest (new {message = "Erro ao adicionar o contato.", error = erro.Message});
+            }
+        }
+
+        [HttpGet("contatos")]
+        public IActionResult Listar()
+        {
+            try
+            {
+                var contatos = _contactRepository.Listar();
+                var qtde = contatos.Count();
+                return Ok(new {total = qtde, contatos = contatos});
+            }
+            
+            catch(Exception erro)
+            {
+                return BadRequest (new {message = "Erro ao buscar os contatos.", error = erro.Message});
             }
         }
         
