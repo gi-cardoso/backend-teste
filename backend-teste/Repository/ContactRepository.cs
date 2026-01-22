@@ -17,6 +17,7 @@ namespace backend_teste.Repository
         }
         public ContactModel Adicionar(ContactModel contact)
         {
+            contact.DataHota = DateTime.Now;
             _context.Contatos.Add(contact);
             _context.SaveChanges();
             return contact;

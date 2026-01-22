@@ -45,7 +45,7 @@ namespace backend_teste.Controllers
                 var qtde = contatos.Count();
                 return Ok(new {total = qtde, contatos = contatos});
             }
-            
+
             catch(Exception erro)
             {
                 return BadRequest (new {message = "Erro ao buscar os contatos.", error = erro.Message});
