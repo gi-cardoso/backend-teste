@@ -27,6 +27,11 @@ namespace backend_teste.Controllers
         {
             try
             {
+                if(!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
                 var contato = _contactRepository.Adicionar(contact);
                 return Ok(contato);
             }
