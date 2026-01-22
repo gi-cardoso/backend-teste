@@ -42,11 +42,11 @@ namespace backend_teste.Controllers
         }
 
         [HttpGet("contatos")]
-        public IActionResult Listar([FromQuery] string? search)
+        public IActionResult Listar([FromQuery] string? search, [FromQuery] int page, [FromQuery] int limit)
         {
             try
             {
-                var contatos = _contactRepository.Listar(search);
+                var contatos = _contactRepository.Listar(search, page, limit);
                 var qtde = contatos.Count();
                 return Ok(new {total = qtde, contatos = contatos});
             }

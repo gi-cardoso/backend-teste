@@ -11,6 +11,6 @@ namespace backend_teste.Repository
     {
         ContactModel Adicionar(ContactModel contact);
 
-        List<ContactModel> Listar([FromQuery] string? search);
+        List<ContactModel> Listar([FromQuery] string? search, [FromQuery] int page, [FromQuery] int limit);
     }
 }
