@@ -1,4 +1,5 @@
 using backend_teste.Data;
+using backend_teste.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
+builder.Services.AddScoped<IContactRepository, ContactRepository>();
 
 builder.Services.AddDbContext<BancoContext>(options => 
     options.UseMySql(
