@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using backend_teste.Data;
 using backend_teste.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace backend_teste.Repository
 {
@@ -23,8 +24,12 @@ namespace backend_teste.Repository
             return contact;
         }
 
-        public List<ContactModel> Listar()
+        public List<ContactModel> Listar([FromQuery] string? search)
         {
+            if(search != null )
+            {
+                return _context.Contatos.Where(c => c.MotivoContato.Contains(search) || c.Nome.Contains(search) || c.Email.Contains(search)).ToList();
+            }
             return _context.Contatos.ToList();
         }
     }
