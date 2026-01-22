@@ -22,7 +22,7 @@ namespace backend_teste.Controllers
         }
 
         [HttpPost("contato")]
-        public IActionResult Adicionar([FromBody] ContactModel contact)
+        public IActionResult Adicionar(ContactModel contact)
         {
             try
             {
